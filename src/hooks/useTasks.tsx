@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { toast } from "react-toastify";
 import { ITasks } from "../@types/Interface";
 
 export default function useTaks( ) {
@@ -27,12 +28,15 @@ export default function useTaks( ) {
       title: inputTaskValue,
       isCompleted: false,
     }]);
+    toast.success("Task criada com sucesso!");
   }
   
   function deleteTask(id: string) {
     const newTask = tasks.filter((task) => task.id !== id);
     setTasks(newTask);
     localStorage.removeItem(LOCAL_STORAGE_KEY);
+    toast.success("Task deletada com sucesso!");
+
   }
 
   function toggleTaskCompleted(id: string) {

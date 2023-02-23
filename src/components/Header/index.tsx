@@ -1,6 +1,7 @@
 import { Container } from './styles';
 import Logoimg from '../../assets/logoImg.png';
 import { FormEvent, useRef, MutableRefObject } from 'react';
+import { toast } from 'react-toastify';
 
 interface ITaskProps {
     addNewTask: (inputTaskValue: string) => void;
@@ -11,6 +12,12 @@ export default function Header({ addNewTask }: ITaskProps) {
     
     function handleCreateTodo(e: FormEvent) {
         e.preventDefault();
+
+        if(!inputRef.current.value) {
+            toast.error("Campo obrigatorio!");
+            inputRef.current.focus();
+            return;
+        }
 
         addNewTask(inputRef.current?.value);
         inputRef.current.value = "";
