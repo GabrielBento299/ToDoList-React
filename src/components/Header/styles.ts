@@ -25,8 +25,10 @@ export const Container = styled.div`
         @media screen and (max-width: 736px) {
             width: 95%;
         }
+    }
+`;
 
-        input {
+export const Input = styled.input`
             width: 100%;
             height: 54px;
             background-color: #262626;
@@ -36,13 +38,19 @@ export const Container = styled.div`
             padding: 0 1rem;
             border-radius: 8px;
 
+            transition: all .3s;
 
             &::placeholder {
                 color: #808080;
             }
-        }
 
-        button {
+            &:focus {
+                border: 2px solid #1E6F9F;
+                padding: 1.2rem;
+            }    
+`;
+
+export const Button = styled.button`
             width: 90px;
             height: 52px;
             border: none;
@@ -50,10 +58,16 @@ export const Container = styled.div`
             background-color: #1E6F9F;
             border-radius: 8px;
             color: #fff;
-        }
-    }
+            cursor: pointer;
 
-    img {
-        
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+
+            transition: filter .3s ease-in-out;
+
+            &:hover {
+                filter: brightness(1.1);
+            }
 `;

@@ -1,13 +1,16 @@
-import { Container } from './styles';
-import Logoimg from '../../assets/logoImg.png';
-import { FormEvent, useRef, MutableRefObject } from 'react';
+import { Container, Input, Button } from './styles';
+
+import { FormEvent, useRef, MutableRefObject, useContext } from 'react';
 import { toast } from 'react-toastify';
 
-interface ITaskProps {
-    addNewTask: (inputTaskValue: string) => void;
-}
+import Logoimg from '../../assets/logoImg.png';
+import PlusImg from '../../assets/plus.png';
+import { TasksContext } from '../../contexts/TasksContext';
 
-export default function Header({ addNewTask }: ITaskProps) {
+
+export default function Header() {
+    const {addNewTask} = useContext(TasksContext);
+
     const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
     
     function handleCreateTodo(e: FormEvent) {
@@ -19,7 +22,7 @@ export default function Header({ addNewTask }: ITaskProps) {
             return;
         }
 
-        addNewTask(inputRef.current?.value);
+        addNewTask(inputRef.current.value);
         inputRef.current.value = "";
         inputRef.current.focus();
     }
@@ -31,12 +34,12 @@ export default function Header({ addNewTask }: ITaskProps) {
             </div>
 
             <form onSubmit={handleCreateTodo}>
-                <input 
+                <Input 
                     type="text"
                     placeholder="Adicione uma nova tarefa"
                     ref={inputRef}
                 />
-                <button type="submit">Criar</button>
+                <Button type="submit">Criar <img src={PlusImg} alt="" /> </Button>
             </form>
         </Container>
     )

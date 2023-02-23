@@ -1,19 +1,15 @@
-import { ITasks } from '../../@types/Interface';
 import Task from '../Task';
 import { Container, EmptyContainer } from './styles';
 import ClipBoardImg from '../../assets/clipboard.png';
+import { useContext } from 'react';
+import { TasksContext } from '../../contexts/TasksContext';
  
-interface ITasksProps {
-    tasks: ITasks[];
-    deleteTask: (taskId: string) => void;
-    toggleTaskCompleted: (taskId: string) => void;
-}
-
-export default function Tasks({ tasks, deleteTask, toggleTaskCompleted }: ITasksProps) {
+export default function Tasks() {
+   const { tasks } = useContext(TasksContext);
+   
     const tasksLength = tasks.length;
     const tasksCompleted = tasks.filter((task) => task.isCompleted).length;
 
-    
     return (
         <Container>
             <div className="container-cards">
@@ -30,8 +26,6 @@ export default function Tasks({ tasks, deleteTask, toggleTaskCompleted }: ITasks
                 {tasks.map((task) => (
                     <Task 
                         key={task.id} task={task}
-                        deleteTask={deleteTask} 
-                        toggleTaskCompleted={toggleTaskCompleted}
                     />            
                 ))}
                 </>

@@ -1,15 +1,15 @@
 import { TaskContainer, Title } from './styles';
-import { ITasks } from '../../@types/Interface';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import TrashImg from '../../assets/trash.png';
+import { useContext } from 'react';
+import { ITasks, TasksContext } from '../../contexts/TasksContext';
 
 interface ITaskProps {
     task: ITasks;
-    deleteTask: (taskId: string) => void;
-    toggleTaskCompleted: (taskId: string) => void;
 }
 
-export default function Task({ task, deleteTask, toggleTaskCompleted}: ITaskProps) {
+export default function Task({ task }: ITaskProps) {
+    const { deleteTask, toggleTaskCompleted} = useContext(TasksContext);
 
     return (
         <TaskContainer>

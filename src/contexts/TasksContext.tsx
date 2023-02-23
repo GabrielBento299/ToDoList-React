@@ -1,11 +1,25 @@
-import { useState, useEffect } from "react"
+import { createContext, ReactNode, useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { ITasks } from "../@types/Interface";
 
-export default function useTaks( ) {
-  const [tasks, setTasks] = useState<ITasks[]>([]);
+export interface ITasks {
+    id: string;
+    title: string;
+    isCompleted: boolean;
+}
 
+interface TasksContextType {
+    tasks: ITasks[];
+    addNewTask: (inputTaskValue: string) => void;
+    deleteTask: (id: string) => void;
+    toggleTaskCompleted: (id: string) => void;
+}
+
+export const TasksContext = createContext({} as TasksContextType);
+
+export function TasksProvider({ children} : {children: ReactNode}) {
   const LOCAL_STORAGE_KEY = "@task"
+
+  const [tasks, setTasks] = useState<ITasks[]>([]);
 
   useEffect(() => {
     const storage  = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -53,10 +67,9 @@ export default function useTaks( ) {
     setTasks(taskIscompleted);
   }
 
-  return {
-        tasks,
-        addNewTask,
-        deleteTask,
-        toggleTaskCompleted
-    }
+    return (
+        <TasksContext.Provider value={{ tasks, addNewTask, deleteTask, toggleTaskCompleted }}>
+            {children}
+        </TasksContext.Provider>
+      )
 }
