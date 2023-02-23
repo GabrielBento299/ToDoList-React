@@ -1,7 +1,7 @@
 import { TaskContainer, Title } from './styles';
-import { FaTrash } from 'react-icons/fa';
 import { ITasks } from '../../@types/Interface';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import TrashImg from '../../assets/trash.png';
 
 interface ITaskProps {
     task: ITasks;
@@ -15,13 +15,19 @@ export default function Task({ task, deleteTask, toggleTaskCompleted}: ITaskProp
         <TaskContainer>
         <main>
             <div className="card">
-                <button 
-                    onClick={() => toggleTaskCompleted(task.id)} 
-                    className="btn-completed">{task.isCompleted ? <BsFillCheckCircleFill  /> : <div></div>} 
-                </button>
+                <div className="card-infos">
+                    <button 
+                        onClick={() => toggleTaskCompleted(task.id)} 
+                        className="btn-completed">{task.isCompleted ? <BsFillCheckCircleFill  /> : <div></div>} 
+                    </button>
                 
-                <Title isCompleted={task.isCompleted}>{task.title}</Title>
-                <button onClick={() => deleteTask(task.id)}><FaTrash /></button>
+                    <Title isCompleted={task.isCompleted}>{task.title}</Title>
+                </div>
+                <button 
+                    onClick={() => deleteTask(task.id)}
+                    >
+                    <img src={TrashImg} alt="Icone de deletar" /> 
+                </button>
             </div>
         </main>
         </TaskContainer>    

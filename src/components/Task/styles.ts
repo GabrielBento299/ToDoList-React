@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const TaskContainer = styled.div`
+    
     .card {
         width: 100%;
-        height: 72px;
+        min-height: 72px;
         background-color: #333333;
         padding: 1rem;
 
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        .card-infos {
+            display: flex;
+            gap: 1.2rem;
+        }
 
         & {
             margin-bottom: .8rem;
@@ -37,9 +43,13 @@ export const TaskContainer = styled.div`
             border: none;
             cursor: pointer;
 
-            svg {
-                color: #fff;
-                font-size: 1rem;
+            img {
+                transition: all .4s ease;
+
+                &:hover {
+                   filter: brightness(1.5);
+                   transform: scale(1.2);
+                }
             }
         }
     }
