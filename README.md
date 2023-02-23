@@ -1,7 +1,8 @@
 <h1>TODO LIST</h1>
 
 <p> Projeto de um todolist, criado com react, typescript, styled-components, context e localstorage </p>
-<p>A aplicaçãp realiza inserção de tarefas onde é possivel clicar se essa tarefa estiver completada, e tambem é possivel deletar a tarefa.</p>
+<p>A aplicaçãp realiza inserção de tarefas, onde é possivel clicar se essa tarefa estiver completada, não é possivel adicionar a mesma tarefa com mesmo titulo,
+é possivel deletar a tarefa.</p>
 <span> Ultilizado  o localstorage para guardar as informações. </span>
 
 Link do figma com layout do projeto https://www.figma.com/file/lY2XFCq5H68iU1u3tngqpo/ToDo-List-(Copy)?node-id=43%3A88&t=8Vq1WqKjLwwTLp1h-0
