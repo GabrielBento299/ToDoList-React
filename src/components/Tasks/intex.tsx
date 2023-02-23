@@ -1,4 +1,4 @@
-import { ITasks } from '../../@types/TasksInterface';
+import { ITasks } from '../../@types/Interface';
 import Task from '../Task';
 import { Container, EmptyContainer } from './styles';
 import ClipBoardImg from '../../assets/clipboard.png';

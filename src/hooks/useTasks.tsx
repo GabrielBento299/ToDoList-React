@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { ITasks } from "../@types/TasksInterface";
+import { ITasks } from "../@types/Interface";
 
 export default function useTaks( ) {
   const [tasks, setTasks] = useState<ITasks[]>([]);

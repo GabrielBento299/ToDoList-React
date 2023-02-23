@@ -1,6 +1,6 @@
 import { TaskContainer, Title } from './styles';
 import { FaTrash } from 'react-icons/fa';
-import { ITasks } from '../../@types/TasksInterface';
+import { ITasks } from '../../@types/Interface';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 interface ITaskProps {
