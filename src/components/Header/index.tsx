@@ -9,10 +9,10 @@ import { TasksContext } from '../../contexts/TasksContext';
 
 
 export default function Header() {
-    const {addNewTask} = useContext(TasksContext);
+    const { tasks, addNewTask } = useContext(TasksContext);
 
     const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
-    
+
     function handleCreateTodo(e: FormEvent) {
         e.preventDefault();
 
@@ -21,6 +21,9 @@ export default function Header() {
             inputRef.current.focus();
             return;
         }
+
+        const existeTitleTask = tasks.find(task => task.title.toLocaleLowerCase() === inputRef.current.value.toLocaleLowerCase());
+        if (existeTitleTask) return toast.error("Essa task já foi adicionada!");
 
         addNewTask(inputRef.current.value);
         inputRef.current.value = "";
