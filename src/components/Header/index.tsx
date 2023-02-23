@@ -1,5 +1,5 @@
 import { Container } from './styles';
-import Logoimg from '../../assets/logo.png';
+import Logoimg from '../../assets/logoImg.png';
 import { FormEvent, useRef, MutableRefObject } from 'react';
 
 interface ITaskProps {
