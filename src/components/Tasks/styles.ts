@@ -12,6 +12,12 @@ export const Container = styled.div`
         padding-top: 84px;
         padding-bottom: 2rem;
 
+        
+        @media screen and (max-width: 736px) {
+            width: 95%;
+        }
+
+
         .items {
             display: flex;
             align-items: center;

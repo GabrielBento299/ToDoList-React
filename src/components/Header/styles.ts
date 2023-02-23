@@ -22,6 +22,10 @@ export const Container = styled.div`
         gap: 8px;
         bottom: calc(-200px / 2);
 
+        @media screen and (max-width: 736px) {
+            width: 95%;
+        }
+
         input {
             width: 100%;
             height: 54px;
